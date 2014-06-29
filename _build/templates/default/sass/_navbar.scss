@@ -4,7 +4,7 @@
     min-height:55px; // #janky #extjs
 }
 #modx-navbar {
-  @include background-image(linear-gradient(to right, rgb(63,72,80) 0%, rgb(54,84,98) 46%, rgb(62,85,84) 60%, rgb(66,85,77) 68%, rgb(87,61,78) 100%));
+  @include background-image(linear-gradient(to right, rgb(63,72,80) 0%, rgb(54,84,98) 26%, rgb(62,85,84) 30%, rgb(66,85,77) 48%, rgb(87,61,78) 70%, rgb(63,72,80) 80%));
   box-shadow: 0 2px 0 $borderShadow;
   height: 100%;
   position: relative;
@@ -12,8 +12,11 @@
 }
 
 #modx-user-menu {
-  float: right;
-  margin-right: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background-color: rgb(63,72,80);
 }
 
 #modx-navbar {
@@ -22,7 +25,13 @@
 }
 
 #modx-topnav {
-  float: left;
+  // float: left;
+  // correct overlap
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -54,54 +63,86 @@
   text-decoration: none;
 }
 
-#modx-topnav {
-    > li:not(#modx-home-dashboard) {
-        > a {
-            @include media($desktop) {
-                text-indent:-99999em;
-                display:block;
-                height:100%;
-                position:relative;
-                width:1em;
-                &:after {
-                    @include absolute-corners;
-            		@include awesome-font;
-                    text-indent:0;
-                    display:block;
-                    text-align:center;
-                    line-height:55px;
-                    font-size:16px;
-                }
-            }
-        }
-    }
-    @include media($desktop) {
-        #limenu-site > a:after { content:$fa-var-file-text-o; /* "\f0f6" */ }
-        #limenu-media > a:after { content:$fa-var-picture-o; /* "\f03e" */ }
-        #limenu-components > a:after { content:$fa-var-cube; /* "\f1b2" */  }
-        #limenu-manage > a:after { content:$fa-var-sliders; /* "\f1de" */ }
-    }
-}
-
 #user-username {
     @include media($desktop) {
         display:none;
     }
 }
 
-#modx-navbar .top {
-  padding-right: 15px;
+// responsive top-navbar
+// small first...
+// 
+#modx-topnav {
+  width: 2000px; // avoid second line if lot of menu items
+  > li {
+        background: transparent;
+        float: left;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        height: 55px;
+        
+        &.top { // if this item has child -> show an arrow under 
+          
+          &:after {
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid rgb(96,114,124);
+            position: relative;
+            content: ' ';
+            display: block;
+            margin: 0 auto;
+            width: 1px;
+            margin-top: 40px;
+          } 
+        }
 
-  &:after {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid rgb(96,114,124);
-    position: absolute;
-    content: ' ';
-    right: 12px;
-    top: 26px;
-  }
+    > a {
+      
+      .icon {
+        display: inline-block;
+        text-indent:0;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        } 
+      .icon-text{display: none;}
+      }
+    }
+
+  // Breakpoint : larger than 960 (see _colors-and-vars.scss)
+  // 
+  @include media($gtDesktop) {
+  
+   > li {
+        background: transparent;
+        float: left;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        height: 55px;
+        
+        &.top{ // if this item has child -> show an arrow on the right
+          > a {padding: 0 25px 0 10px;}
+            &:after {
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-top: 5px solid rgb(96,114,124);
+              position: absolute;
+              content: ' ';
+              right: 10px;
+              top: 26px;
+              margin: 0;
+            }
+          }
+    > a {
+        .icon {display: none;}
+        .icon-text{display: inline;}
+        }
+      }
+  } // end desktop
 }
+
 
 #modx-topnav li.top > a {
   cursor: default;
@@ -159,14 +200,21 @@
   border-right: none;
   margin-left: 21px;
 }
+
 #user-avatar img {
   border-radius: 20px;
-  margin: 8px 10px 0 0;
-  height: 40px;
-  width: 40px;
+  margin: 12px 0;
+  height: 30px;
+  width: 30px;
   display: block;
   float: left;
+  @include media($gtDesktop) {
+    margin: 7px 10px 0 0;
+    height: 40px;
+    width: 40px;
+  }
 }
+
 #user-username {
 }
 
