@@ -134,9 +134,9 @@ $treePseudoRootFont: normal 14px/35px $headfonts;
 $treeNodeFont: normal 13px/22px $bodyfonts;
 
 
-$buttonColor: #728DA7;
+$buttonColor: #c7c7c7;
 $buttonHoverColor: $brandSelectedColor;
-$regularButtonColor: #707070;
+$regularButtonColor: #c7c7c7;
 $buttonBackground: $white;
 $buttonColorActive: $white;
 $buttonColorDisabled: darken($buttonColor, 20%);
@@ -147,7 +147,7 @@ $baseText:   normal 13px/1.4 $bodyfonts;
 $fontSmall:  normal 11px $bodyfonts;
 $fontMedium: normal 12px $bodyfonts;
 $fontNormal: normal $bodyFontSize $bodyfonts;
-$fontNavbar: normal $bodyFontSize $headfonts;
+$fontNavbar: normal 14px $headfonts;
 $fontH2:     normal 25px $headfonts;
 $fontH3:       bold 15px $headfonts;
 
