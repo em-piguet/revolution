@@ -1,6 +1,6 @@
 /**
  * Loads the panel for managing access policy templates.
- * 
+ *
  * @class MODx.panel.AccessPolicyTemplates
  * @extends MODx.FormPanel
  * @param {Object} config An object of configuration properties
@@ -36,7 +36,7 @@ Ext.reg('modx-panel-access-policy-templates',MODx.panel.AccessPolicyTemplates);
 
 /**
  * Loads a grid of modAccessPolicyTemplates.
- * 
+ *
  * @class MODx.grid.AccessPolicyTemplates
  * @extends MODx.grid.Grid
  * @param {Object} config An object of options.
@@ -86,11 +86,11 @@ MODx.grid.AccessPolicyTemplate = function(config) {
             ,cls:'primary-button'
             ,scope: this
             ,handler: this.createPolicyTemplate
-        },'-',{
+        },{
             text: _('import')
             ,scope: this
             ,handler: this.importPolicyTemplate
-        },'-',{
+        },{
             text: _('bulk_actions')
             ,menu: [{
                 text: _('policy_remove_multiple')
@@ -101,6 +101,7 @@ MODx.grid.AccessPolicyTemplate = function(config) {
             xtype: 'textfield'
             ,name: 'search'
             ,id: 'modx-policy-template-search'
+            ,cls: 'x-form-filter'
             ,emptyText: _('search_ellipsis')
             ,listeners: {
                 'change': {fn: this.search, scope: this}
@@ -118,6 +119,7 @@ MODx.grid.AccessPolicyTemplate = function(config) {
         },{
             xtype: 'button'
             ,id: 'modx-sacpoltemp-filter-clear'
+            ,cls: 'x-form-filter-clear'
             ,text: _('filter_clear')
             ,listeners: {
                 'click': {fn: this.clearFilter, scope: this}
@@ -145,7 +147,7 @@ Ext.extend(MODx.grid.AccessPolicyTemplate,MODx.grid.Grid,{
     ,editPolicyTemplate: function(itm,e) {
         MODx.loadPage('security/access/policy/template/update', 'id='+this.menu.record.id);
     }
-    
+
     ,createPolicyTemplate: function(btn,e) {
         var r = this.menu.record;
         if (!this.windows.aptc) {
@@ -217,7 +219,7 @@ Ext.extend(MODx.grid.AccessPolicyTemplate,MODx.grid.Grid,{
                 });
                 m.push({
                     text: _('policy_template_duplicate')
-                    ,handler: this.confirm.createDelegate(this,["duplicate","policy_template_duplicate_confirm"])
+                    ,handler: this.confirm.createDelegate(this,["security/access/policy/template/duplicate","policy_template_duplicate_confirm"])
                 });
             }
             if (m.length > 0) { m.push('-'); }
@@ -230,7 +232,7 @@ Ext.extend(MODx.grid.AccessPolicyTemplate,MODx.grid.Grid,{
                 if (m.length > 0) m.push('-');
                 m.push({
                     text: _('policy_template_remove')
-                    ,handler: this.confirm.createDelegate(this,["remove","policy_template_remove_confirm"])
+                    ,handler: this.confirm.createDelegate(this,["security/access/policy/template/remove","policy_template_remove_confirm"])
                 });
             }
         }
@@ -265,7 +267,7 @@ Ext.reg('modx-grid-access-policy-templates',MODx.grid.AccessPolicyTemplate);
 
 /**
  * Generates a window for creating Access Policies.
- *  
+ *
  * @class MODx.window.CreateAccessPolicy
  * @extends MODx.Window
  * @param {Object} config An object of options.
