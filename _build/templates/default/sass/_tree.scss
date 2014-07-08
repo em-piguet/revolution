@@ -17,6 +17,7 @@
   /* just the actual nodes */
   & .x-tree .x-panel-body {
     backgroud: $white;
+    border-bottom: 1px solid $white;
   }
   
   .x-tab-panel-bwrap {
@@ -24,6 +25,10 @@
 	  z-index: 1;
   }
 }
+
+// should be avoided 
+ //.x-tree-root-node .x-tree-node-ct>:first-child .x-tree-node-ct {margin-left: -18px;}
+ 
 
 #modx-resource-tree-tbar .x-toolbar-left .x-btn.tree-new-resource,
 #modx-tree-element .x-toolbar-left .x-btn.tree-new-template {
@@ -148,9 +153,13 @@
     display: inline-block;
     width: 1em;
 
-    font-size: 1.15em;
+    font-size: 14px;
     line-height: (3em / 4);
     vertical-align: -15%;
+    text-align: left;
+
+    
+
   }
 
   // For legacy icons
@@ -246,9 +255,10 @@
   > .icon {
     font-weight: normal;
     color: $treePseudoRootColor;
-    font-size: (4em / 3);
+    font-size: 14px;
     line-height: (3em / 4);
     vertical-align: -15%;
+    text-align: left;
   }
 
   .modx-tree-node-tool-ct {
@@ -267,8 +277,13 @@
     color: $treePseudoRootOverColor;
   }
   + .x-tree-node-ct {
-    margin-left: -16px;
-    padding: 5px 0;
+
+    li {
+      //margin-left: -16px;
+      //padding: 5px 0;
+    }
+    // margin-left: -16px;
+    // padding: 5px 0;
   }
   &:hover .modx-tree-node-tool-ct {
     opacity: 1;
@@ -308,7 +323,8 @@
   display: inline-block;
   margin: 0;
   padding: 3px;
-  text-align: center;
+  text-align: left;
+  vertical-align: middle;
   opacity: 0.8;
   i {
     font-style: normal;

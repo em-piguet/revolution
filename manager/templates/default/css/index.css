@@ -3505,7 +3505,7 @@ td.x-date-mp-sep {
 
 .x-window-tl .x-window-header, .x-panel-header {
   color: #5E5E5E;
-  font: normal 13px "Helvetica Neue", Helvetica, arial, tahoma, sans-serif;
+  font: normal 14px "Helvetica Neue", Helvetica, arial, tahoma, sans-serif;
   font-weight: bold;
 }
 
@@ -4452,7 +4452,7 @@ having to do some real janky stuff to work with ExtJS markup
   color: white;
 }
 .x-item-disabled.primary-button *, #modx-action-buttons .x-item-disabled.x-btn#modx-abtn-save * {
-  color: #455a6e !important;
+  color: #949494 !important;
 }
 .x-btn-over.primary-button, #modx-action-buttons .x-btn-over.x-btn#modx-abtn-save {
   background: #7fbbb1;
@@ -4492,8 +4492,8 @@ having to do some real janky stuff to work with ExtJS markup
   border: 1px solid #c8d2dc;
 }
 .x-btn button {
-  font-size: 13px;
-  color: #707070;
+  font-size: 14px;
+  color: #c7c7c7;
   cursor: pointer;
   height: 16px;
   min-width: 100%;
@@ -4506,7 +4506,7 @@ having to do some real janky stuff to work with ExtJS markup
   border: none;
 }
 #modx-leftbar .x-btn button {
-  color: #728da7;
+  color: #c7c7c7;
 }
 #modx-action-buttons .x-btn {
   background: white;
@@ -4517,7 +4517,7 @@ having to do some real janky stuff to work with ExtJS markup
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.025), -1px 0 0 rgba(0, 0, 0, 0.025), 1px 0 0 rgba(0, 0, 0, 0.025);
 }
 #modx-action-buttons .x-btn button {
-  color: #728da7;
+  color: #c7c7c7;
 }
 #modx-action-buttons .x-btn.x-btn-over {
   border-color: #fbfbfb;
@@ -4552,7 +4552,7 @@ having to do some real janky stuff to work with ExtJS markup
 .x-toolbar .x-toolbar-cell input.x-form-text {
   padding: 8px 13px;
   border-radius: 4px;
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 
 .x-btn-over {
@@ -4877,14 +4877,14 @@ having to do some real janky stuff to work with ExtJS markup
   position: relative;
 }
 #modx-leftbar .x-toolbar-ct .x-btn > em > button {
-  font-size: 18px;
+  font-size: 14px;
   text-shadow: 0 !important;
   overflow: visible;
   position: absolute;
   height: 24px;
   top: 4px;
   left: 2px;
-  color: #728da7;
+  color: #c7c7c7;
 }
 #modx-leftbar .x-toolbar-ct .x-btn:hover, #modx-leftbar .x-toolbar-ct .x-btn button:hover {
   color: #3697cd;
@@ -5013,6 +5013,9 @@ having to do some real janky stuff to work with ExtJS markup
   padding: 0 12px;
   position: relative;
   z-index: 5;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
 }
 .x-tab-strip li:hover {
   color: #1f5c7e;
@@ -5228,8 +5231,8 @@ ul.x-tab-strip-bottom .x-tab-left {
 }
 
 #modx-navbar {
-  background-image: -webkit-linear-gradient( left , #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%);
-  background-image: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%);
+  background-image: -webkit-linear-gradient( left , #3f4850 0%, #365462 26%, #3e5554 30%, #42554d 48%, #573d4e 70%, #3f4850 80%);
+  background-image: linear-gradient(to right, #3f4850 0%, #365462 26%, #3e5554 30%, #42554d 48%, #573d4e 70%, #3f4850 80%);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
   height: 100%;
   position: relative;
@@ -5237,17 +5240,23 @@ ul.x-tab-strip-bottom .x-tab-left {
 }
 
 #modx-user-menu {
-  float: right;
-  margin-right: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background-color: #3f4850;
 }
 
 #modx-navbar {
   font-weight: bold;
-  font: normal 13px "Helvetica Neue", Helvetica, arial, tahoma, sans-serif;
+  font: normal 14px "Helvetica Neue", Helvetica, arial, tahoma, sans-serif;
 }
 
 #modx-topnav {
-  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -5279,69 +5288,71 @@ ul.x-tab-strip-bottom .x-tab-left {
 }
 
 @media screen and (max-width: 960px) {
-  #modx-topnav > li:not(#modx-home-dashboard) > a {
-    text-indent: -99999em;
-    display: block;
-    height: 100%;
-    position: relative;
-    width: 1em;
-  }
-  #modx-topnav > li:not(#modx-home-dashboard) > a:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-indent: 0;
-    display: block;
-    text-align: center;
-    line-height: 55px;
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 960px) {
-  #modx-topnav #limenu-site > a:after {
-    content: "\f0f6";
-    /* "\f0f6" */
-  }
-  #modx-topnav #limenu-media > a:after {
-    content: "\f03e";
-    /* "\f03e" */
-  }
-  #modx-topnav #limenu-components > a:after {
-    content: "\f1b2";
-    /* "\f1b2" */
-  }
-  #modx-topnav #limenu-manage > a:after {
-    content: "\f1de";
-    /* "\f1de" */
-  }
-}
-
-@media screen and (max-width: 960px) {
   #user-username {
     display: none;
   }
 }
 
-#modx-navbar .top {
-  padding-right: 15px;
+#modx-topnav {
+  width: 2000px;
 }
-#modx-navbar .top:after {
+#modx-topnav > li {
+  background: transparent;
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 55px;
+}
+#modx-topnav > li.top:after {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #60727c;
-  position: absolute;
+  position: relative;
   content: ' ';
-  right: 12px;
-  top: 26px;
+  display: block;
+  margin: 0 auto;
+  width: 1px;
+  margin-top: 40px;
+}
+#modx-topnav > li > a .icon {
+  display: inline-block;
+  text-indent: 0;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+#modx-topnav > li > a .icon-text {
+  display: none;
+}
+@media screen and (min-width: 961px) {
+  #modx-topnav > li {
+    background: transparent;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 55px;
+  }
+  #modx-topnav > li.top > a {
+    padding: 0 25px 0 10px;
+  }
+  #modx-topnav > li.top:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #60727c;
+    position: absolute;
+    content: ' ';
+    right: 10px;
+    top: 26px;
+    margin: 0;
+  }
+  #modx-topnav > li > a .icon {
+    display: none;
+  }
+  #modx-topnav > li > a .icon-text {
+    display: inline;
+  }
 }
 
 #modx-topnav li.top > a {
@@ -5401,11 +5412,18 @@ ul.x-tab-strip-bottom .x-tab-left {
 
 #user-avatar img {
   border-radius: 20px;
-  margin: 8px 10px 0 0;
-  height: 40px;
-  width: 40px;
+  margin: 12px 0;
+  height: 30px;
+  width: 30px;
   display: block;
   float: left;
+}
+@media screen and (min-width: 961px) {
+  #user-avatar img {
+    margin: 7px 10px 0 0;
+    height: 40px;
+    width: 40px;
+  }
 }
 
 #modx-navbar #modx-home-dashboard a {
@@ -5732,6 +5750,7 @@ ul.x-tab-strip-bottom .x-tab-left {
 }
 #modx-leftbar .x-tree .x-panel-body {
   backgroud: white;
+  border-bottom: 1px solid white;
 }
 #modx-leftbar .x-tab-panel-bwrap {
   position: relative;
@@ -5853,9 +5872,10 @@ ul.x-tab-strip-bottom .x-tab-left {
 .x-tree-node-el .icon {
   display: inline-block;
   width: 1em;
-  font-size: 1.15em;
+  font-size: 14px;
   line-height: 0.75em;
   vertical-align: -15%;
+  text-align: left;
 }
 
 .x-tree-node-el a span {
@@ -5951,9 +5971,10 @@ ul.x-tab-strip-bottom .x-tab-left {
 .tree-pseudoroot-node.x-tree-node-el > .icon {
   font-weight: normal;
   color: #447996;
-  font-size: 1.33333em;
+  font-size: 14px;
   line-height: 0.75em;
   vertical-align: -15%;
+  text-align: left;
 }
 .tree-pseudoroot-node.x-tree-node-el .modx-tree-node-tool-ct {
   line-height: 35px;
@@ -5969,10 +5990,6 @@ ul.x-tab-strip-bottom .x-tab-left {
 .tree-pseudoroot-node.x-tree-node-el.x-tree-node-over {
   background-color: #f0f0f0;
   color: #447996;
-}
-.tree-pseudoroot-node.x-tree-node-el + .x-tree-node-ct {
-  margin-left: -16px;
-  padding: 5px 0;
 }
 .tree-pseudoroot-node.x-tree-node-el:hover .modx-tree-node-tool-ct {
   opacity: 1;
@@ -6009,7 +6026,8 @@ ul.x-tab-strip-bottom .x-tab-left {
   display: inline-block;
   margin: 0;
   padding: 3px;
-  text-align: center;
+  text-align: left;
+  vertical-align: middle;
   opacity: 0.8;
 }
 #modx-leftbar .icon i,
